@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       },
       prod: {
         path: 'prod/',
-        vendorsJS: 'dev/javascripts/vendors/',
+        vendorsJS: 'prod/javascripts/vendors/',
         bowerPath: './bower_components/'
       }
     },
@@ -77,7 +77,7 @@ module.exports = function(grunt) {
               expand: true,
               flatten: true,
               src: ['<%= meta.dev.bowerPath %>require-handlebars-plugin/hbs/**'],
-              dest: '<%= meta.dev.vendorsJS %>hbs/',
+              dest: '<%= meta.prod.vendorsJS %>hbs/',
               filter: 'isFile'
         }]
       },
