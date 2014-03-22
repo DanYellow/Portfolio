@@ -135,27 +135,10 @@ html, body {
             right: 0;
             overflow: hidden;
             background-color: red;
+
+            ._mixin-transform(scale(2));
         }
     }
-
-    section#pagination {
-        ul {
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        li {
-            font-size: 30px;
-            display: inline-block;
-            padding: .45em;
-            font-family: 'Open Sans', sans-serif;
-
-            a {
-                color: black;
-            }
-        }
-    }
-
 
     width: 100%;
     min-height: 75%;
@@ -191,16 +174,16 @@ figure {
     .foreground,
     .background {
         position: absolute;
+
     }
 
     .foreground {
         z-index: 42;
-        ._mixin-transition(750ms, all);
-
     }
 
     .foreground-anim {
         ._mixin-transform(scale(1.75));
+        ._mixin-transition(850ms, ease, all, 660ms);
         opacity: 0;
     }
 
@@ -212,6 +195,7 @@ figure {
 
     .background-anim {
         ._mixin-transform(scale(1));
+        ._mixin-transition(850ms, ease, all, 660ms);
         opacity: 1;
     }
 
@@ -272,4 +256,3 @@ figure {
         color: black;
     }
 }
-

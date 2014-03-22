@@ -13,6 +13,23 @@
 
         initialize: function(data) {
           this.collection = data;
+
+          $(document).ready(function(){
+                App.$galleryCarousel.owlCarousel({
+                    singleItem: true,
+                    paginationNumbers: true,
+                    pagination: true,
+                    scrollPerPage: true,
+                    mouseDrag: false,
+
+                    startDragging: function(){
+                      $(this.el).find('li').off('click');
+                    },
+                    afterAction: function () {
+                      $(this.el).find('li').on('click', false);
+                    }
+                });
+              });
         },
         render: function() {
           var _that = this;
@@ -30,21 +47,7 @@
               $(_that.el).addClass('gallery');
               App.$galleryCarousel.append($(_that.el).append(tplListView({datas: data})));
 
-              $(document).ready(function(){
-                App.$galleryCarousel.owlCarousel({
-                    singleItem: true,
-                    paginationNumbers: true,
-                    pagination: true,
-                    scrollPerPage: true,
 
-                    /*startDragging: function(){
-                      $(_that.el).find('li').off('click');
-                    },
-                    afterAction: function () {
-                      $(_that.el).find('li').on('click', false);
-                    }*/
-                });
-              });
           });
         },
         events: {
