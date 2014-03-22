@@ -68,7 +68,8 @@ module.exports = function(grunt) {
           { src: '<%= meta.dev.bowerPath %>modernizr/modernizr.js', dest: '<%= meta.prod.vendorsJS %>modernizr.js' },
           { src: '<%= meta.dev.bowerPath %>requirejs/require.js', dest: '<%= meta.prod.vendorsJS %>require.js' },
           { src: '<%= meta.dev.bowerPath %>underscore/underscore.js', dest: '<%= meta.prod.vendorsJS %>underscore.js' },
-          { src: '<%= meta.dev.bowerPath %>require-handlebars-plugin/hbs.js', dest: '<%= meta.prod.vendorsJS %>hbs.js' }
+          { src: '<%= meta.dev.bowerPath %>require-handlebars-plugin/hbs.js', dest: '<%= meta.prod.vendorsJS %>hbs.js' },
+          { src: 'dev/javascripts/owl.carousel.min.js', dest: '<%= meta.prod.vendorsJS %>owl.carousel.min.js' }
         ]
       },
 

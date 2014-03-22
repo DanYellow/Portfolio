@@ -11,7 +11,8 @@
         <footer>
             <a class="icon-circle-arrow-up" href="javascript:void(0)"></a>
         </footer>
-        <img src="http://lorempixel.com/g/1900/1500/" alt="">
+        <!-- src will be changed by backbone -->
+        <img src="http://lorempixel.com/1900/1500/" alt="">
         <aside>
             Wo such small screen
         </aside>
@@ -25,16 +26,24 @@
             </article>
             <header><a class="icon-circle-arrow-down" href="javascript:void(0)"></a></header>
 
-             <ul id="gallery">
-                {% set loopIterationNumber = 8 %}
-                {% set productCountAsArray = Array(loopIterationNumber) %}
 
-                {% for i in productCountAsArray %}
-                    <li>
-                        <img src="http://lorempixel.com/g/1900/1500/" alt="">
-                    </li>
-                {% endfor %}
-            </ul>
+
+            <!-- <ul id="gallery"></ul> -->
+            <section id="gallery-carousel">
+                <ul id="gallery" class="item">
+                    {% set loopIterationNumber = 8 %}
+                    {% set productCountAsArray = Array(loopIterationNumber) %}
+
+                    {% for i in productCountAsArray %}
+                        <li>
+                            <img src="http://lorempixel.com/g/1900/1500/" alt="">
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+
+
             <section id="pagination">
                 <ul>
                     {% set truc = 5 %}
