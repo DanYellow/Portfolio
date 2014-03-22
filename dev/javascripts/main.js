@@ -37,28 +37,35 @@
         }
     });
 
+(function() {
     require(
         [
-          'owlslider',
           'galleryItem',
           'galleryCollection',
           'galleryListItemsView',
           'app',
           'galleryView'
-        ], function(owlslider, galleryItem, galleryCollection, galleryListItemsView, App, GalleryView) {
+        ], function(galleryItem, galleryCollection, galleryListItemsView, App, GalleryView) {
 
         App.init();
 
 
-/*        galleryCollection.fetch({ success:function (data) {
-            window.postsListView = new window.portfolio.galleryListItemsView(data);
+        galleryCollection.fetch({ success:function (data) {
+            console.log(data.first(5), data);
+
+            var loopNumber =  Math.ceil(data.length / 8);
+            //console.log(loopNumber);
+
+            //for (var i = 0; i < 2 ; i++) {
+                var truc = new window.portfolio.galleryListItemsView(data);
+                truc.render();
+            //};
+            //galleryListItemsView = new window.portfolio.galleryListItemsView(data);
             //var postsListView = new window.portfolio.galleryItemsView({collection: data});
-            postsListView.render();
-        }});*/
+            //galleryListItemsView.render();
 
 
 
-        $("#gallery-carousel").owlCarousel({
-            singleItem: true
-        });
+        }});
     });
+}).call(this);

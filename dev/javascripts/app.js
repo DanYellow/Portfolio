@@ -9,12 +9,13 @@ define( ['jquery'], function() {
           this.triggerShowThumbs();
         },
         cachedElements: function () {
-            App.$figure  = $('figure');
-            App.$nav     = $('nav');
-            App.$overlay = $('.overlay');
-            App.$iconDown = $('.icon-circle-arrow-down');
+            App.$figure          = $('figure');
+            App.$nav             = $('nav');
+            App.$overlay         = $('.overlay');
+            App.$iconDown        = $('.icon-circle-arrow-down');
+            App.$galleryCarousel = $('#gallery-carousel');
         },
-        showThumbs: function() {
+        showThumbs: function () {
           App.$figure.find('a').on('click', function(){
               App.$nav.removeClass('hide-gallery').addClass('show-gallery');
               App.$figure.css('height', '35%');
@@ -30,7 +31,7 @@ define( ['jquery'], function() {
               App.$overlay.css('opacity', 0);
           });
         },
-        triggerShowThumbs: function() {
+        triggerShowThumbs: function () {
           this.$figure.find('a').trigger('click');
         },
         triggerHideThumbs: function() {

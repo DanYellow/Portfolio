@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
     <head>
@@ -6,10 +7,8 @@
         <title>{% block title %}My Site{% endblock %}</title>
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css' />
-        <link rel="stylesheet" href="stylesheets/owl.carousel.css" />
         <link rel="stylesheet" href="stylesheets/style.css" />
-        {% block stylesheets %}
-        {% endblock %}
+        <link rel="stylesheet" href="stylesheets/owl.carousel.css" />
 
         <script src="javascripts/vendors/modernizr.js" type="text/javascript"></script>
     </head>

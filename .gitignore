@@ -12,6 +12,8 @@ pids
 logs
 results
 
+garbage.txt
+
 npm-debug.log
 node_modules/
 bower_components/
