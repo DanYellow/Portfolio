@@ -15,43 +15,37 @@
           this.collection = data;
 
           $(document).ready(function(){
-                App.$galleryCarousel.owlCarousel({
-                    singleItem: true,
-                    paginationNumbers: true,
-                    pagination: true,
-                    scrollPerPage: true,
-                    mouseDrag: false,
-
-                    startDragging: function(){
-                      $(this.el).find('li').off('click');
-                    },
-                    afterAction: function () {
-                      $(this.el).find('li').on('click', false);
-                    }
-                });
+              App.$galleryCarousel.owlCarousel({
+                  singleItem: true,
+                  paginationNumbers: true,
+                  pagination: true,
+                  scrollPerPage: true,
+                  mouseDrag: false
               });
+            });
         },
-        render: function() {
+        render: function(str, end) {
           var _that = this;
 
           console.log('loading');
           // fetch, when that is done, replace 'Loading' with content
-  /*        console.log(this.collection.models, this.collection.first(1),  this.collection.fetch());
-          _.each(this.collection.models, function(data){
+          _.each(this.collection.slice(str, end), function(data){
             $(_that.el).addClass('gallery');
-            $('#gallery-carousel').append($(_that.el).append(tplListView({datas: data})));
-          });*/
+
+            //console.log(data.attributes);
+            $('#gallery-carousel').append($(_that.el).append(tplListView({datas: data.attributes})));
+          });
           //console.log(this.collection);
-          this.collection.fetch().done(function(data){
+          /*this.collection.fetch().done(function(data){
               //Datas are loaded
               $(_that.el).addClass('gallery');
               App.$galleryCarousel.append($(_that.el).append(tplListView({datas: data})));
-
-
-          });
+              });
+          });*/
         },
         events: {
-          'click li' : 'displayImg'
+          'click li' : 'displayImg',
+          'focus li a' : 'displayImg'
         },
         displayImg: function (evt) {
           var id = $(evt.currentTarget).closest('li').data('id');

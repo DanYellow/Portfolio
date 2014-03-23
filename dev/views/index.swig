@@ -12,8 +12,8 @@
             <a class="icon-circle-arrow-up" href="javascript:void(0)"></a>
         </footer>
         <!-- src will be changed by backbone -->
-        <img src="http://lorempixel.com/1900/1500/" alt="" class="foreground" />
-        <img src="http://lorempixel.com/1900/1500/" alt="" class="background" />
+        <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" class="foreground" />
+        <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" class="background" />
         <aside>
             Wo such small screen
         </aside>

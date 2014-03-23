@@ -48,19 +48,15 @@
 (function() {
     require(
         [
-          'galleryItem',
-          'galleryCollection',
-          'galleryListItemsView',
           'app',
-          'galleryView',
           'router'
-        ], function(galleryItem, galleryCollection, galleryListItemsView, App, GalleryView) {
+        ], function(App) {
 
         App.init();
 
-        var truc = new window.RoutesManager();
-        Backbone.history.start();
-
-
+        var router = new window.RoutesManager();
+        Backbone.history.start({
+            pushState: false
+        });
     });
 }).call(this);

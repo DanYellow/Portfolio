@@ -1,7 +1,5 @@
-{{#each datas}}
-	<li data-id={{@index}}>
-        <a href="#">
-        	<img src="{{ this.thumbSRC }}" data-big-img="{{ this.imgSRC }}" alt="">
-        </a>
-    </li>
-{{/each}}
+<li data-id={{datas.id}}>
+    <a href="#/{{datas.id}}">
+        <img src="{{ datas.thumbSRC }}" data-big-img="{{ datas.imgSRC }}" alt="">
+    </a>
+</li>

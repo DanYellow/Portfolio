@@ -17,8 +17,7 @@ define( ['hbs!../templates/gallery', 'app', 'backbone', 'jquery', 'pxloaderimage
         loader.addCompletionListener(function() {
           $imgBackground.addClass('background-anim')
                         .attr('src', _that.model.toJSON().imgSRC)
-                        .attr('data-id', _that.model.toJSON().id)
-                        //.removeClass('background background-anim').addClass('foreground');
+                        .attr('data-id', _that.model.toJSON().id);
         });
 
         loader.start();
@@ -30,17 +29,9 @@ define( ['hbs!../templates/gallery', 'app', 'backbone', 'jquery', 'pxloaderimage
 
         $imgForeground.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
           $imgForeground.removeClass('foreground foreground-anim').addClass('background');
-
          });
 
-
-        //$(this.el).append( tplGalleryView(this.model.toJSON()) );
-
         App.triggerHideThumbs();
-    },
-    afterRender: function () {
-      // When the page is loaded, hides the thumbs container
-      App.triggerHideThumbs();
     }
   });
 

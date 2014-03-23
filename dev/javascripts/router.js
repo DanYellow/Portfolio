@@ -1,31 +1,37 @@
-define( ['galleryCollection', 'galleryListItemsView', 'backbone'], function(galleryCollection, galleryListItemsView) {
+define( ['galleryCollection', 'galleryListItemsView',
+         'galleryView', 'backbone'], function(GalleryCollection, GalleryListItemsView, GalleryView) {
+
   window.RoutesManager = Backbone.Router.extend({
     routes: {
-      '/:id' : 'displayImg',
+      ':id' : 'displayImg',
+      '*actions' : 'index'
 
-
-      '*path': 'index'
+    },
+    initialize: function() {
+      displayGallery();
     },
     index: function () {
-      galleryCollection.fetch({ success:function (data) {
-            console.log(data.first(5), data);
 
-            var loopNumber =  Math.ceil(data.length / 8);
-            //console.log(loopNumber);
-
-            for (var i = 0; i < 2 ; i++) {
-                var truc = new window.portfolio.galleryListItemsView(data);
-                truc.render();
-            };
-            //galleryListItemsView = new window.portfolio.galleryListItemsView(data);
-            //var postsListView = new window.portfolio.galleryItemsView({collection: data});
-            //galleryListItemsView.render();
-        }});
     },
     displayImg: function (id) {
-     alert(id);
+      GalleryView.model = GalleryCollection.get(id);
+      GalleryView.render();
     }
   });
 
-  window.router = new RoutesManager();
+  function displayGallery() {
+    GalleryCollection.fetch({ success:function (data) {
+        var loopNumber =  Math.ceil(data.length / 8);
+        console.log(data.length);
+        var str = 0, end = 8;
+
+        for (var i = 0; i < loopNumber ; i++) {
+            var listView = new window.portfolio.galleryListItemsView(data);
+            listView.render(str, end);
+            str +=8;
+            end +=8;
+        };
+    }});
+  }
 });
+

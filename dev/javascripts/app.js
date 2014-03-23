@@ -16,7 +16,7 @@ define( ['jquery'], function() {
             App.$galleryCarousel = $('#gallery-carousel');
         },
         showThumbs: function () {
-          App.$figure.find('a').on('click', function(){
+          App.$figure.find('a').on('click focus', function(){
               App.$nav.removeClass('hide-gallery').addClass('show-gallery');
               App.$figure.css('height', '35%');
               App.$figure.css('transform', 'scale(1.25)');
@@ -24,7 +24,7 @@ define( ['jquery'], function() {
           });
         },
         hideThumbs: function () {
-          $('.icon-circle-arrow-down').on('click', function(){
+          $('.icon-circle-arrow-down').on('click focus', function(){
               App.$nav.removeClass('show-gallery').addClass('hide-gallery');
               App.$figure.css('height', '95%');
               App.$figure.css('transform', 'scale(1)');

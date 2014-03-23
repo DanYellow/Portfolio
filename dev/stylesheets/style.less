@@ -81,7 +81,6 @@ html, body {
                 display: inline-block;
                 padding: .35em;
             }
-
         }
 
         h1 {
@@ -104,7 +103,6 @@ html, body {
         margin-left: 2.109375%;
         text-align: right;
         color: white;
-
     }
 
     ul {
@@ -119,12 +117,12 @@ html, body {
             display: inline-block;
             margin-left: 0.775%;
             overflow: hidden;
-        }
 
-        li:before {
-            content: "";
-            display: block;
-            padding-top: 61.66%;  /* initial ratio of 1:1*/
+            &:before {
+                content: "";
+                display: block;
+                padding-top: 61.66%;  /* initial ratio of 1:1*/
+            }
         }
 
         li img {
@@ -136,11 +134,12 @@ html, body {
             overflow: hidden;
             background-color: red;
 
-            ._mixin-transform(scale(2));
+            ._mixin-transform(scale(1.15));
         }
     }
 
     width: 100%;
+    display: inline-block;
     min-height: 75%;
     ._mixin-perspective(35em);
 }
@@ -243,11 +242,12 @@ figure {
     .active {
         ._mixin-retina-image('../images/stardust', 'png', 'repeat');
         color: white;
+        cursor: default!important;
     }
 }
 
 .owl-page {
-    font-size: 30px;
+    font-size: 1.75em;
     display: inline-block;
     padding: .45em;
     font-family: 'Open Sans', sans-serif;
