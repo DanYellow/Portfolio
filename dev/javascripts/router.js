@@ -5,7 +5,6 @@ define( ['galleryCollection', 'galleryListItemsView',
     routes: {
       ':id' : 'displayImg',
       '*actions' : 'index'
-
     },
     initialize: function() {
       displayGallery();

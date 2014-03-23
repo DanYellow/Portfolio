@@ -23,8 +23,13 @@
                           .attr('src', _that.model.toJSON().imgSRC)
                           .attr('data-id', _that.model.toJSON().id);
           });
-          console.log(id)
+
            //$('ul.gallery li').eq(id).addClass('active');
+
+          // $(document).ready(function(){
+            console.log(id)
+            $('ul.gallery li').eq(id).addClass('active');
+          //});
 
 
           loader.start();

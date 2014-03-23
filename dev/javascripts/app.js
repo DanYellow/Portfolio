@@ -4,9 +4,6 @@ define(['jquery'], function() {
           this.cachedElements();
           this.showThumbs();
           this.hideThumbs();
-
-          //Display thumbnails on page load
-          //this.triggerShowThumbs();
         },
         cachedElements: function () {
             App.$figure          = $('figure');
