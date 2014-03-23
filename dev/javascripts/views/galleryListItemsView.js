@@ -22,36 +22,27 @@
                   scrollPerPage: true,
                   mouseDrag: false
               });
-            });
+          });
         },
         render: function(str, end) {
           var _that = this;
 
-          console.log('loading');
+          //console.log('loading');
           // fetch, when that is done, replace 'Loading' with content
           _.each(this.collection.slice(str, end), function(data){
             $(_that.el).addClass('gallery');
-
-            //console.log(data.attributes);
             $('#gallery-carousel').append($(_that.el).append(tplListView({datas: data.attributes})));
           });
-          //console.log(this.collection);
-          /*this.collection.fetch().done(function(data){
-              //Datas are loaded
-              $(_that.el).addClass('gallery');
-              App.$galleryCarousel.append($(_that.el).append(tplListView({datas: data})));
-              });
-          });*/
         },
         events: {
-          'click li' : 'displayImg',
-          'focus li a' : 'displayImg'
+          'click li' : 'addIndicator',
+          'focus li a' : 'addIndicator'
         },
-        displayImg: function (evt) {
-          var id = $(evt.currentTarget).closest('li').data('id');
+        addIndicator: function (evt) {
+          $('li.active').removeClass('active');
+          $(evt.currentTarget).closest('li').addClass('active');
 
-          GalleryView.model = GalleryCollection.get(id);
-          GalleryView.render();
+          App.triggerHideThumbs();
         }
       });
   });

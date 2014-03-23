@@ -35,7 +35,7 @@ html, body {
 
 .overlay {
     height: 100%; width: 100%;
-    background-blend-mode: multiply;
+    /*background-blend-mode: multiply;*/
     background-color: rgb(0, 0, 0);
     position: absolute;
     top: 0; left: 0;
@@ -121,7 +121,12 @@ html, body {
             &:before {
                 content: "";
                 display: block;
-                padding-top: 61.66%;  /* initial ratio of 1:1*/
+                padding-top: 61.66%;
+            }
+
+            &.active {
+                opacity: .70;
+                outline: 1px solid black;
             }
         }
 
@@ -134,7 +139,7 @@ html, body {
             overflow: hidden;
             background-color: red;
 
-            ._mixin-transform(scale(1.15));
+            ._mixin-transform(scale(1.50));
         }
     }
 
@@ -203,11 +208,12 @@ figure {
     overflow: hidden;
     position: relative;
     transition: 750ms all cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    background: url('AjaxLoader.gif') no-repeat center center;
 }
 
 
 //Media queries
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) and (orientation : portrait) {
     #nav-container {
         ul.gallery {
             li{

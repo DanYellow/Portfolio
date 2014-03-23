@@ -1,4 +1,4 @@
-define( ['jquery'], function() {
+define(['jquery'], function() {
     var App = {
         init: function() {
           this.cachedElements();
@@ -6,7 +6,7 @@ define( ['jquery'], function() {
           this.hideThumbs();
 
           //Display thumbnails on page load
-          this.triggerShowThumbs();
+          //this.triggerShowThumbs();
         },
         cachedElements: function () {
             App.$figure          = $('figure');
@@ -16,7 +16,7 @@ define( ['jquery'], function() {
             App.$galleryCarousel = $('#gallery-carousel');
         },
         showThumbs: function () {
-          App.$figure.find('a').on('click focus', function(){
+          App.$figure.find('a').on('click', function(){
               App.$nav.removeClass('hide-gallery').addClass('show-gallery');
               App.$figure.css('height', '35%');
               App.$figure.css('transform', 'scale(1.25)');

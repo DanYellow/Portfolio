@@ -14,15 +14,26 @@ define( ['galleryCollection', 'galleryListItemsView',
 
     },
     displayImg: function (id) {
-      GalleryView.model = GalleryCollection.get(id);
-      GalleryView.render();
+     if (!GalleryView.fetched) {
+        GalleryCollection.fetch({
+          success: function() {
+            GalleryView.fetched = true;
+            GalleryView.model = GalleryCollection.get(id);
+            GalleryView.render();
+          }
+        })
+      } else {
+        GalleryView.model = GalleryCollection.get(id);
+        GalleryView.render();
+      }
     }
   });
 
   function displayGallery() {
-    GalleryCollection.fetch({ success:function (data) {
+    GalleryCollection.fetch({
+      success:function (data) {
         var loopNumber =  Math.ceil(data.length / 8);
-        console.log(data.length);
+
         var str = 0, end = 8;
 
         for (var i = 0; i < loopNumber ; i++) {
@@ -31,7 +42,8 @@ define( ['galleryCollection', 'galleryListItemsView',
             str +=8;
             end +=8;
         };
-    }});
+      }
+    });
   }
 });
 

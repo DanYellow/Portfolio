@@ -1,9 +1,12 @@
 define( ['backbone', 'galleryItem'], function(galleryItem) {
     var model = window.portfolio.galleryItem;
-
+    console.log(galleryItem, model);
     window.portfolio.galleryItems = Backbone.Collection.extend({
-      model: window.portfolio.galleryItem,
-      url: 'javascripts/datas.json'
+      model: model,
+      url: 'javascripts/datas.json',
+      initialize: function() {
+      	//this.fetch();
+      }
     });
 
     return new window.portfolio.galleryItems();
