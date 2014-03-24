@@ -13,33 +13,40 @@
         var id =  _that.model.toJSON().id;
         loader.addImage(this.model.toJSON().imgSRC);
 
-        var $imgForeground = $(this.el).find('img.foreground'),
-            $imgBackground = $(this.el).find('img.background');
+        var $containerForeground = $(this.el).find('div.foreground'),
+            $containerBackground = $(this.el).find('div.background');
 
-          $imgForeground.addClass('foreground-anim');
+        // var $imgForeground = $containerForeground.find('img.foreground'),
+        //     $imgBackground = $containerBackground.find('img.background');
 
-          loader.addCompletionListener(function() {
-            $imgBackground.addClass('background-anim')
-                          .attr('src', _that.model.toJSON().imgSRC)
-                          .attr('data-id', _that.model.toJSON().id);
+          $containerForeground.addClass('foreground-anim');
+
+          loader.addProgressListener(function(e) {
+            console.log(e.resource);
+            $containerBackground.html(e.resource.img);
+            $containerBackground.addClass('background-anim');
+
+            //e.resource.img.attr('data-id', _that.model.toJSON().id);
+            // $imgBackground.attr('src', _that.model.toJSON().imgSRC)
+            //               .attr('data-id', _that.model.toJSON().id)
+            //               .addClass('background-anim');
           });
 
            //$('ul.gallery li').eq(id).addClass('active');
 
           // $(document).ready(function(){
-            console.log(id)
             $('ul.gallery li').eq(id).addClass('active');
           //});
 
 
           loader.start();
 
-          $imgBackground.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+          $containerBackground.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
             $(this).removeClass('background background-anim').addClass('foreground');
           });
 
-          $imgForeground.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
-            $imgForeground.removeClass('foreground foreground-anim').addClass('background');
+          $containerForeground.bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){
+            $(this).removeClass('foreground foreground-anim').addClass('background');
           });
       }
     });

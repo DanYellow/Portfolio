@@ -11,7 +11,7 @@ var swig  = require('swig');
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 777);
+app.set('port', process.env.PORT || 3333);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.use(express.favicon());
