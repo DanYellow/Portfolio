@@ -12,10 +12,10 @@
         </footer>
         <!-- src will be changed by backbone -->
         <div class='foreground'>
-            <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" />
+            <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" class='foreground' />
         </div>
         <div class='background'>
-            <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" />
+            <img src="http://lorempixel.com/1900/1500/" alt="img-gallery" class='background' />
         </div>
         <aside>
             Wo such small screen
