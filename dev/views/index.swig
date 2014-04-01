@@ -33,7 +33,5 @@
             <section id="gallery-carousel"></section>
         </nav>
     </section>
-    <div style="background-image: url(http://lorempixel.com/1900/1500/); position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover;">
-
     </div>
 {% endblock %}
