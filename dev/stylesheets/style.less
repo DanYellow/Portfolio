@@ -27,19 +27,17 @@ img{
 html, body {
     overflow: hidden;
     height: 100%;
-    margin: 0 auto;
 
     ._mixin-retina-image('../images/stardust', 'png', 'repeat');
 }
 
 
 .overlay {
-    height: 100%; width: 100%;
-    /*background-blend-mode: multiply;*/
+    background-blend-mode: multiply;
     background-color: rgb(0, 0, 0);
     position: absolute;
-    top: 0; left: 0;
-    opacity: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0; z-index: 142;
 
     ._mixin-transition(750ms, ease, all, 0ms);
 }
@@ -147,10 +145,15 @@ html, body {
     width: 100%;
     display: inline-block;
     min-height: 75%;
+    max-width: 1550px;
+    margin: 0 auto;
+
     ._mixin-perspective(35em);
 }
 
 figure {
+    max-width: 1550px;
+    margin: 0 auto;
     footer {
         .icon-circle-arrow-up {
             color: black;
@@ -183,6 +186,7 @@ figure {
 
     .foreground {
         z-index: 42;
+        width: 100%;
     }
 
     .foreground-anim {
@@ -194,11 +198,11 @@ figure {
     .background {
         z-index: 21;
         opacity: 0;
-        ._mixin-transform(scale(.75));
+        ._mixin-transform(scale(.75) translateY(0%));
     }
 
     .background-anim {
-        ._mixin-transform(scale(1));
+        ._mixin-transform(scale(1) translateY(0%));
         ._mixin-transition(850ms, ease, all, 660ms);
         opacity: 1;
     }
@@ -211,6 +215,21 @@ figure {
     background: url('AjaxLoader.gif') no-repeat center center;
 }
 
+/*@media screen and (min-width: 1024px) {
+    .foreground img {
+        min-height: 95%;
+        min-width: 1024px;
+
+         Set up proportionate scaling
+        width: 100%;
+        height: 95%;
+
+         Set up positioning
+        position: fixed;
+        top: 0; left: 0;
+    }
+}
+*/
 
 //Media queries
 @media screen and (max-width: 768px) and (orientation : portrait) {
@@ -218,7 +237,7 @@ figure {
         ul.gallery {
             li{
                 width: 32%;
-                margin-left: 0.905%;
+                margin-left: 0.910%;
 
                 &:nth-child(1),
                 &:nth-child(2) {
@@ -234,7 +253,7 @@ figure {
         ul.gallery {
             li{
                 width: 23.9%;
-                margin-left: 0.905%;
+                margin-left: 0.910%;
             }
         }
     }

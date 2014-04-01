@@ -13,19 +13,24 @@ define(['jquery'], function() {
             App.$galleryCarousel = $('#gallery-carousel');
         },
         showThumbs: function () {
-          App.$figure.find('a').on('click', function(){
+          this.$figure.find('a').on('click', function(){
+              var img = $('.foreground').find('img').attr('src');
+
               App.$nav.removeClass('hide-gallery').addClass('show-gallery');
+
               App.$figure.css('height', '35%');
               App.$figure.css('transform', 'scale(1.25)');
-              App.$overlay.css('opacity', 0.65);
+
+              App.$overlay.css('opacity', 1);
+              //App.$overlay.css("background-image", "url(" + img + ")");
           });
         },
         hideThumbs: function () {
-          $('.icon-circle-arrow-down').on('click focus', function(){
-              App.$nav.removeClass('show-gallery').addClass('hide-gallery');
+          this.$iconDown.on('click', function(){
               App.$figure.css('height', '95%');
               App.$figure.css('transform', 'scale(1)');
               App.$overlay.css('opacity', 0);
+              App.$nav.addClass('hide-gallery').removeClass('show-gallery');
           });
         },
         triggerShowThumbs: function () {

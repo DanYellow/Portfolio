@@ -1,33 +1,29 @@
-(function() {
+//(function() {
   define( ['hbs!../templates/list-item',
            'galleryView',
            'galleryCollection',
-           'app',
-           'jquery',
-           'backbone',
-           'owlslider'], function(tplListView, GalleryView, GalleryCollection, App) {
+           'app', 'owlslider'], function(tplListView, GalleryView, GalleryCollection, App) {
 
-      window.portfolio.galleryListItemsView = Backbone.View.extend({
+      var galleryListItemsView = Backbone.View.extend({
         tagName: 'ul',
         className: 'item',
 
         initialize: function(data) {
           this.collection = data;
 
-          $(document).ready(function(){
+           $(function() {
               App.$galleryCarousel.owlCarousel({
-                  singleItem: true,
-                  paginationNumbers: true,
-                  pagination: true,
-                  scrollPerPage: true,
-                  mouseDrag: false
-              });
+                singleItem: true,
+                paginationNumbers: true,
+                pagination: true,
+                scrollPerPage: true,
+                mouseDrag: false
+            });
           });
         },
         render: function(str, end) {
           var _that = this;
 
-          //console.log('loading');
           // fetch, when that is done, replace 'Loading' with content
           _.each(this.collection.slice(str, end), function(data){
             $(_that.el).addClass('gallery');
@@ -45,24 +41,6 @@
           App.triggerHideThumbs();
         }
       });
+
+    return galleryListItemsView;
   });
-}).call(this);
-/*    ItemView = Backbone.View.extend({
-        tagName: "li",
-        className: 'truc',
-        events: {
-            "click": "clicked"
-        },
-
-        clicked: function(e){
-            e.preventDefault();
-            var name = this.model.get("imgSRC");
-            console.log(name);
-        },
-
-        render: function(){
-            var truc = tplOne({data: this.model.toJSON()});
-            console.log($(this.el), truc );
-            $(this.el).append( truc);
-        }
-    });*/

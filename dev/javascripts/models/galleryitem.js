@@ -1,5 +1,7 @@
 define(['backbone'], function() {
-    window.portfolio.galleryItem = Backbone.Model.extend({
+    var galleryItem = Backbone.Model.extend({
         urlRoot: 'javascripts/datas.json'
     });
+
+     return galleryItem;
 });

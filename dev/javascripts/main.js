@@ -19,8 +19,8 @@
             galleryCollection: '../collections/galleryitems',
 
             //Views
-            galleryListItemsView: '../Views/gallerylistitemsview',
-            galleryView: '../Views/galleryview',
+            galleryListItemsView: '../views/gallerylistitemsview',
+            galleryView: '../views/galleryview',
 
             //Routes
             router: '../router'
@@ -46,17 +46,8 @@
     });
 
 (function() {
-    require(
-        [
-          'app',
-          'router'
-        ], function(App) {
-
-        App.init();
-
-        var router = new window.RoutesManager();
-        Backbone.history.start({
-            pushState: false
-        });
+    require(['router', 'jquery', 'app', 'owlslider'], function(RoutesManager, $, App) {
+        var router = new RoutesManager();
+        Backbone.history.start();
     });
 }).call(this);
